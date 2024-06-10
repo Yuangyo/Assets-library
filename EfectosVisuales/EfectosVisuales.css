@@ -1,0 +1,226 @@
+html{
+    box-sizing: border-box;
+    font-family: sans-serif;
+    font-size: 16px;
+}
+
+*::after,
+*::before {
+    box-sizing: inherit;
+}
+
+.box{
+    border: thick solid #000;
+    margin-left: auto;
+    margin: auto;
+    width: 200px;
+    height: 200px;
+}
+
+
+/*VALORES POSIBLES PARA LA SOMBRA PARA LA CAJA*/
+/*box-shadow: mov-x mov-y blur-radius spread-blur color inset/outset;*/
+/*EL VALOR POR DEFECTO DE LAS SOMBRAS OUTSET y si quiero que sea INSET debo escribirlo*/
+.boxshadow{
+    box-shadow: 1rem 1rem 1rem 1rem;
+    color: navy;
+}
+
+/*SOMBRAS MULTIPLES*/
+/*Si quiero sombras multiples solo hago esto: box-shadow: 1rem 1rem 1rem 1rem, box-shadow: 1rem 1rem 1rem 1rem, box-shadow: 1rem 1rem 1rem 1rem;*/
+
+/*FILTRO DE SOMBRAS*/
+/*VALORES POSIBLES: filter: drop-shadow(mov-x mov-y blur-radius color);*/
+/*SE APLICA SOBRE IMAGENES PNG*/
+
+/*GRADIENTES*/
+.linear-gradient{
+    background-image: linear-gradient(79deg,red, green);
+}
+
+
+/* Propiedades validas de este: circle posiciónPX (top left right bot) Color*/
+.radial-gradient{
+    background-image: radial-gradient(
+        blue 30%,
+        magenta 50%,
+        red 20%
+        );
+}
+
+.conic-gradient{
+    background-image: conic-gradient(red, blue);
+
+}
+
+.repeat-gradient-linear{
+    background-image: repeating-linear-gradient(
+        green 0px 10px,
+        blue 10px 20px, 
+        magenta 20px 30px)
+}
+
+.repeat-gradient-radial{
+    background-image: repeating-radial-gradient(
+    circle 4rem,
+    green 0px 10px,
+    blue 10px 20px, 
+    magenta 20px 30px)
+}
+
+.repeat-gradient-conic{
+    background-image: repeating-conic-gradient(
+    green 0 10%,
+    blue 10% 20%, 
+    magenta 20% 30%)
+}
+
+.chart-gradient{
+    background-image: conic-gradient(green 0% 50%, blue 50% 60%, cyan 60% );
+    border-radius: 50%;
+}
+
+
+/*En este se puede ir jugando con los valores del primer gradiente (representa el circulo interno) a ver qué tal*/
+.donut-gradient{
+    background-image: radial-gradient(white 30%, black 31%, transparent 33% ), conic-gradient(green 0% 50%, blue 50% 60%, cyan 60%);
+    border-radius: 50%;
+}
+
+
+
+.card{
+    border: thick solid #000;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 5rem;
+    width: 600px;
+    height: 400px;
+}
+
+.card img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    
+}
+/*LOS FILTROS SE APLICAN SOBRE LAS IMAGENES*/
+.filtro{
+    filter: blur(1rem); /*puedo usar la unidad que creo conveniente*/
+    filter: brightness(0.25); /*0 a 1*/
+    filter: grayscale(0.5); /*0 a 1*/
+    filter: sepia(0.23); /*0 a 1*/
+    filter: hue-rotate(55deg); /* de 0deg a 360deg*/
+    filter: invert(1); /*0 a 1*/
+    filter: opacity(0.25); /* 0 a 1*/
+    filter: saturate(0.5); /*0 a 1*/
+}
+
+.filtros{
+    filter: blur(1rem)  brightness(0.25) invert(1);
+}
+
+
+/*BACKDROP FILTER ES UN CONCEPTO QUE SE PUEDE APLICAR A FONDOS DE LETRAS, CONTENIDO Y DEMÁS*/
+.relative{
+    position: relative;
+}
+
+
+
+.backdrop-filter{
+    background-color: magenta;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    filter: opacity(0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+
+/*MODO OSCURO*/
+.dark-mode{
+    background-color: #fff;
+    color: #000;
+    filter: invert(1);
+}
+
+
+/*MODO DE MEZCLA*/
+.absolute{
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.blend-mode img{
+    mix-blend-mode: normal; /*POR DEFECTO*/
+    mix-blend-mode: color;
+    mix-blend-mode: color-dodge;
+    mix-blend-mode: color-burn;
+    mix-blend-mode: screen;
+    mix-blend-mode: multiply;
+    mix-blend-mode: saturation;
+    mix-blend-mode: luminosity;
+    mix-blend-mode: hue;
+    mix-blend-mode: exclusion;
+    mix-blend-mode: soft-light;
+    mix-blend-mode: hard-light;
+    mix-blend-mode: darken;
+    mix-blend-mode: overlay;
+    mix-blend-mode: difference;
+
+}
+
+/*MASCARA*/
+/*SIRVE PARA CAMBIAR DE FORMA UNA IMAGEN*/
+.clip-path{
+    clip-path: circle();   /*MODO NORMAL*/
+    clip-path: circle(2rem);    /*ALGUNAS PROPIEDADES*/
+    clip-path: circle(100px at top); /*ALGUNAS PROPIEDADES*/
+    clip-path: ellipse(100px 50px); /*ELIPSE*/
+    clip-path: inset(7rem round 4rem 7rem 2rem 1rem); 
+}
+
+/*ARMONÍA ENTRE TEXTO Y PARRAFO*/
+.shapes{
+    border: thick solid black;
+    padding: 1rem;
+    margin: 0 auto 5rem;
+    max-width: 800px;
+}
+
+.shapes img{
+    border-radius: 50%;
+    object-fit: cover;
+    width: 200px;
+    height: 200px;
+}
+
+.float-left{
+    float: left;
+}
+
+.float-right{
+    float: right;
+}
+
+.shape1{
+    margin: 4rem 2rem; /*ESTRUCTURA RECOMENDADA*/
+    shape-outside: circle();
+}
+
+.shape2{
+    margin: 4rem 2rem;
+    shape-outside: ellipse();
+}
+
+.shape3{
+    margin: 4rem 2rem;
+    shape-outside: polygon();
+}

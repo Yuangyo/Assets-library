@@ -1,0 +1,178 @@
+html{
+    box-sizing: border-box;
+    font-family: sans-serif;
+    font-size: 16px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+*::after,
+*::before {
+    box-sizing: inherit;
+}
+
+body{
+    margin: 0;
+}
+
+.card{
+    border: thick solid #000;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 5rem;
+    width: 600px;
+    height: 400px;
+}
+
+.card img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+/*Es necesario colocar esto, el identificador es el nombre que le puse abajo*/
+
+@keyframes NombreDeAnimacion {
+    from {
+        opacity: 0;
+        transform: translateX(3rem);    /*Estas propiedades son un ejemplo para probar*/
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/*PUEDO COLOCAR TAMBIÉN EL KEYFRAME DE ESTA FORMA*/
+
+@keyframes NombreDeAnimacion {
+    0%{
+
+    }
+
+    20%{
+
+    }
+
+    40%{
+
+    }
+
+    80%{
+
+    }
+}
+
+/*https://cubic-bezier.com/*/
+
+.animacion{
+    /*PROPIEDADES POSIBLES: NAME DURATION TIMING-FUNCTION DELAY ITERATION-COUNT DIRECTION FILL-MODE*/
+
+    /*primero debo darle un nombre*/
+    animation-name: NombreDeAnimacion;
+    animation-duration: 3s; 
+    /*animation-timing-function: cubic-bezier();*/
+    animation-delay: 1;
+    animation-iteration-count: 3; /*puede tener un valor numerico o el valor infinite*/
+    animation-duration: reverse; /*reverse alternate alternate-reverse normal*/
+    animation-fill-mode: none; 
+    /*Si quiero que la animación se quede con los ultimos elementos de esa animación*/
+    animation-fill-mode: forwards;
+    /*Si quiero que la animación se quede con los primeros elementos de esa animación*/
+    animation-fill-mode: backwards;
+    /*Si quiero lo mismo tanto al inicio como al final de la animacion y que no de el salto raro*/
+    animation-fill-mode: both;
+}
+
+
+/*FADE IN Y FADE OUT*/
+@keyframes fade-in {
+    0%{
+        opacity: 0;
+    }
+
+    100%{
+        opacity: 100%;
+    }
+}
+
+@keyframes fade-out {
+    0%{
+        opacity: 100;
+    }
+
+    100%{
+        opacity: 0%;
+    }
+}
+
+.fade-in{
+    font-size: 5vw;
+    animation: fade-in 2s linear infinite alternate;
+}
+
+.fade-out{
+    font-size: 5vw;
+    animation: fade-in 2s linear infinite alternate;
+}
+
+
+/*SHAKE*/
+@keyframes shake {
+    10%,
+    90%{
+        transform: translate(-1px, 0);
+    }
+
+    20%,
+    80%{
+        transform: translate(2px, 0);
+    }
+
+    30%,
+    50%,
+    70%{
+        transform: translate(-4px, 0);
+    }
+
+    40%,
+    60%{
+        transform: translate(4px, 0);
+    }
+}
+
+.shake{
+    font-size: 5vw;
+    cursor: pointer;
+}
+
+.shake:hover{
+    animation: shake 1s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+    transform: translate(0, 0);
+}
+
+
+/*PULSE*/
+
+@keyframes pulse {
+    0%{
+        transform: scale(1.1);
+    }
+
+    50%{
+        transform: scale(0.8);
+    }
+
+    100%{
+        transform: scale(1);
+    }
+
+}
+
+.pulse{
+    font-size: 5vw;
+    animation: pulse 1s linear infinite;
+    
+}

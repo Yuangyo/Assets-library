@@ -1,0 +1,73 @@
+html{
+    box-sizing: border-box;
+    font-family: sans-serif;
+    font-size: 16px;
+}
+
+*::after,
+*::before {
+    box-sizing: inherit;
+}
+
+body{
+    margin: 0;
+}
+
+.tabs-menu{
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 1rem;
+    border-radius: 1rem;
+    background-color: #ddd;
+    width: 70%;
+    height: 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.tabs-menu input[type="radio"]{
+    display: none;
+}
+
+.tabs-menu label{
+    position: relative;
+    width: calc(100%/4 - .5rem);
+    text-align: center;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.tabs-menu label:hover{
+    color: blue;
+}
+
+.tabs-menu input[type="radio"]:checked + label{
+    color: blue;
+}
+
+.tab-bg-hover{
+    position: absolute;
+    width: calc(100%/4 - .5rem);
+    height: 2rem;
+    background-image: linear-gradient(90deg, red,red);
+    border-radius: .5rem;
+    transition: transform 300ms ease-in-out;
+}
+
+#tab-1:checked ~ .tab-bg-hover{
+    transform: translateX(0);
+}
+
+#tab-2:checked ~ .tab-bg-hover{
+    transform: translateX(100%);
+}
+
+#tab-3:checked ~ .tab-bg-hover{
+    transform: translateX(200%);
+}
+
+#tab-4:checked ~ .tab-bg-hover{
+    transform: translateX(300%);
+}

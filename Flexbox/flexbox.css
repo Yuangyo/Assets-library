@@ -1,0 +1,47 @@
+.container{
+    background-color: #333;
+    display: flex;  /*Dos posibles valores inline-flex o flex*/
+}
+
+
+.item{
+    background-color: #666;
+}
+
+.container2{
+    background-color: aqua;
+    display: flex;
+    flex-direction: column; /*Valores posibles: row row-reverse column y column reverse*/ /*Esta propiedad sirve para ver si se van a establecer columnas o filas*/
+    flex-wrap: nowrap; /*nowrap: Va a ajustar a todos sus hijos en una linea /// wrap: ajusta el contenido al tamaño de acuerdo a lo que hay en flex-direction (Si hay filas debo poner ancho o si hay columnas debe haber altura) /// wrap-reverse */
+    justify-content: ; /*Hacia donde se va a justificar el contenido de acuerdo al eje X o eje Principal*/ /*Valores: flex-start , center , space-between , flex-end , space-around , space-evenly*/
+    align-items: ; /*strech: estira al 100% del tamaño del contenedor en el eje Y /// flex-start: centra en la parte superior /// center: centra en el centro /// base-line: los elementos se alinean a una linea central, pero estos pueden tener tamaños distintos /// flex-end: centra en la parte de abajo*/
+    align-content: ;
+    /*Define la propiedad de los hijos en el eje trasversal (cross axis), NO FUNCIONA SI LOS HIJOS ESTAN EN UNA SOLA LINEA (Cuando flex wrap es = no wrap, funciona cuando el valor de flex wrap es = wrap)*/
+    /*Flex-start , flex-end , center , space-between , space-around , space-evenly , stretch*/
+
+    flex-shrink: 0;
+    /*Cuando la caja flexbox no tenga espacio sobrante, es la habilidad para encogerse, valor por defecto es 0*/
+
+    flex-grow: 0;
+    /*Factor de crecimiento: Valor por defecto es 0, cuando la caja flexbox tenga espacio sobrante, es la habilidad o factor para crecer (Nunca puede ser 0)*/
+    
+    /*Ninguna permite valores negativos (shrink o grow)*/
+
+    flex-basis: auto;
+    /*Valor por defecto es auto*/
+    /*Es el tamaño del elemento hijo dentro de la linea de la caja flexbox
+    Si la caja flexbox tiene dirección de fila, flex-basis representa el width
+    Si la caja flexbox tiene dirección de columna, flex-basis representa el height*/
+
+
+    flex: ;
+    /*Es un shorthand de las propiedades flex-grow flex-shrink y flex-basis en ese orden*/
+    
+
+    order;
+    /*Representan el orden que tendrán los hijos en el contenedor padre, de acuerdo al orden que se haya estructurado, al elemento que le coloque esto va a aparecer primero o ultimo*/
+
+
+    align-self: stretch;
+    
+}

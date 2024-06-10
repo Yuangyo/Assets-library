@@ -1,0 +1,83 @@
+html{
+    box-sizing: border-box;
+    font-family: sans-serif;
+    font-size: 16px;
+}
+
+*::after,
+*::before {
+    box-sizing: inherit;
+}
+
+
+body{
+    margin: 0;
+}
+
+.slides{
+    width: 100%;
+    height: 100vh;  
+    overflow-y: scroll;  
+}
+
+.slide{
+    width: 100%;
+    height: inherit;
+    background-color: pink;
+    scroll-snap-align: start; 
+}
+
+.slide-container{
+    width: 100%;
+    height: inherit;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 3vw;
+    color: grey;
+}
+
+
+/*Código para el carrusel*/
+
+/*Pautas para que el scroll snap funcione (En este caso horizontal)*/
+/*1) El contenedor de los slides debe tener una anchura o una altura bien definida (Depeendiendo del eje que quiera controlar)*/
+/*2) overflow x: scroll (Esto debe estar bien definido)*/
+/*3) Contenedor padre debe llevar: scroll-snap-type: x mandatory y las hijas deben llevar scroll-snap-align: valor que quiera (preferiblemente center)*/
+
+.carrusel{
+    border: thick solid blue;
+    width: 50%;
+    height: 50vh;
+    overflow-x: hidden; 
+    display: flex;
+}
+
+.carrusel-container{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(5, 100%);
+    overflow-x: scroll;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    
+}
+
+
+.carrusel-slide{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: blueviolet;   
+    scroll-snap-align: center;
+}
+
+.carrusel-slide:nth-child(even){
+    background-color: aqua;
+}
+
+
+

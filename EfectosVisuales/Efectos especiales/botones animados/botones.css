@@ -1,0 +1,75 @@
+html{
+    box-sizing: border-box;
+    font-family: sans-serif;
+    font-size: 16px;
+}
+
+*::after,
+*::before {
+    box-sizing: inherit;
+}
+
+body{
+    margin: 0;
+}
+
+.btn{
+    position: relative;
+    border: none;
+    border-radius: 0.25rem;
+    padding: 0.2rem;
+    width: 15rem;
+    height: 2.5rem;
+    font-size: 1.25rem;
+    font-weight: bold;
+    cursor: pointer;
+    overflow: hidden;
+    box-shadow: 0.25rem 0.25rem 0.5rem 0,25rem rgba(0, 0, 0, 0.5);
+}
+
+.anim-bottom::after{
+    content: "";
+    position: absolute;
+    bottom: 0;
+    width: 5%;
+    height: 0.25rem;
+    background-color: red;
+    transition: width 0.5s ease, left 0.5s ease, right 0.5s ease;
+}
+
+.anim-bottom:hover::after{
+    width: 100%;   
+}
+
+.to-left::after{
+    left: 0;
+}
+
+.to-center::after{
+    left: 50%;
+}
+
+.to-center:hover::after{
+    left: 0;
+}
+
+.to-right::after{
+    right: 0;
+}
+
+
+
+
+/*ANIMACION DE GRADIENTE*/
+
+.anim-gradiente{
+    background-image: linear-gradient(to right, pink, violet, orange, orangered);
+    background-size: 300% 100%;
+    transition: background-position 0.5s ease-in-out;
+}
+
+.anim-gradiente:hover{
+    background-position: 100% 0;
+}
+
+

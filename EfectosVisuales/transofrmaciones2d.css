@@ -1,0 +1,128 @@
+html{
+    box-sizing: border-box;
+    font-family: sans-serif;
+    font-size: 16px;
+}
+
+*::after,
+*::before {
+    box-sizing: inherit;
+}
+
+body{
+    margin: 0;
+}
+
+.card{
+    border: thick solid #000;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 5rem;
+    width: 600px;
+    height: 400px;
+}
+
+.card img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/*En las transformaciones en 2d existe:
+    -Traslación en X
+    -Traslación en Y
+    -Giro alrededor de su propio eje
+    -Deformación*/
+
+.transform-2d img{
+    transition: transform 2s ease-in-out;
+    
+}
+
+.transform-2d img:hover{
+    transform: none;
+    transform: translateX(4rem);
+    transform: translateY(4rem);
+    transform: translate(4rem,4rem);
+    transform: scaleX(2); /*Aumenta el doble de tamaño*/
+    transform: scaleY(1.5);
+    transform: scale(2,2);
+    transform: rotateX(20deg);
+    transform: rotateY(45deg);
+    transform: rotateZ(120deg);
+    transform: skewX(20deg);    /*SKEW solo existe en 2d*/
+    transform: skewY(36deg);
+
+    /*TRANSFORMACIONES MULTIPLES*/
+    transform: translate(4rem,4rem) rotate(360deg);
+}
+
+
+/*EFECTOS 3D*/
+/*ES NECESARIO ACTIVAR LA PERSPECTIVA, PARA ELLO DEBO HEREDARLA DEL CONTENEDOR PADRE DEL ELEMENTO
+AL QUE LE QUIERO APLICAR LA TRANSFORMACIÓN EN 3DS o SE LA PUEDO APLICAR DIRECTAEMENTE A UN ELEMENTO*/
+.transform-3d img{
+    transition: transform 2s ease-in-out;
+}
+
+/*LA PERSPECTIVA USUALMENTE SE DEBE DEJAR EN 10REM*/
+.transform-3d img:hover{
+    transform: perspective(1000px) translateZ(4rem);
+    /*Una vez activada la perspectiva, se puede empezar a trabajar en 3d*/
+    transform: translate3d(2rem, 50%, -3rem);
+}
+
+.transform-origin img{
+    transition: transform 2s ease-in-out;
+    transform-origin: 0 0;
+    transform-origin:top left ; /*Puedo dar valores en % px rem top left bottom rigth*/
+}
+
+.transform-origin img:hover{
+    transform: rotate(360deg);
+}
+
+
+/*FLIP CARD*/
+
+.flip-card-1{
+    border: thick solid #000;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 5rem;
+    width: 600px;
+    height: 400px;
+    position: relative;
+    cursor: pointer;
+    transition: transform 1s ease-in-out;
+
+    /*ES NECESARIO COLOCAR ESTAS DOS PROPIEDADES SI QUIERO USAR EL FLIP*/
+    perspective: 10rem;
+    transform-style: preserve-3d ; /*Si los hijos de un elemento en 3d dimensiones, va a determinar el comportamiento*/
+}
+
+.flip-card-1:hover{
+    transform: rotateY(180deg);
+}
+
+.flip-card-1 img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+}
+
+
+.flip-face{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+
+    /*Esta propiedad solo se aplica sobre perspectiva 3D*/    
+    backface-visibility: visible; /*Valor por defecto*/
+    backface-visibility: hidden;
+}
+
+.flip-front{
+    transform: rotateY(180deg);
+}

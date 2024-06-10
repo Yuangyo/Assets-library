@@ -1,0 +1,279 @@
+html {
+    box-sizing: border-box;
+    font-size: 16px;
+    font-family: sans-serif;
+    scroll-behavior: smooth;
+  }
+
+  *,
+  *::after,
+  *::before {
+    box-sizing: inherit;
+  }
+
+  a[href="#top"] {
+    margin: 1rem;
+    display: block;
+    font-size: 2rem;
+    text-align: center;
+    text-decoration: none;
+  }
+
+  p {
+    margin: 0;
+  }
+
+  h2 {
+    margin-top: 50vh;
+    text-align: center;
+  }
+
+  img {
+    margin: auto;
+    display: block;
+    max-width: 100%;
+    height: auto;
+  }
+
+  .menu {
+    margin-bottom: 100vh;
+    font-size: 125%;
+  }
+
+  .menu li {
+    margin-bottom: 1rem;
+  }
+
+  .container {
+    margin: 0 auto;
+    width: 80%;
+    height: 80vh;
+    background-color: #222;
+    border: medium solid #000;
+  }
+
+  .item {
+    padding: 1rem;
+    font-size: 1.25rem;
+    background-color: #666;
+    border: medium solid #999;
+  }
+
+  .sub-item {
+    padding: 1rem;
+    background-color: #ddd;
+    border: medium solid #ccc;
+  }
+
+  .grid-explicit{
+    display: grid; /*Esto activa el GRID dentro de mi HTML y CSS*/
+    grid-template-columns: 2vh 2%; /*Permite definir el numero de columnas*/ /*Puede tener como valor el numero que yo quiera de valores "vh vw % fr*/
+    grid-template-rows: 1vw 3%; /*Define el numero de filas*/
+
+    /*Si quiero que tengan el mismo numero de columnas*/
+    grid-template-columns: repeat(4, auto);
+    /*Si quiero que tengan el mismo numero de filas*/
+    grid-template-rows: repeat(5, auto);
+    gap: 1vh 1vw ; /*Distancia entre filas y Distancia entre columnas*/
+  }
+
+
+  /*POSICIONAMIENTO DE ITEMS ESPECIFICOS*/
+
+  .grid-explicit .item:nth-child(10){
+    grid-row-start: 3;
+    grid-row-end: 2;
+    grid-column-start: 3;
+    grid-column-end: 2;
+
+    /*Combinar cajas*/
+    grid-row: 2 / 3;
+    grid-column: 2 / 3;
+    /*grid-area: grid-row-start / grid-row-end / grid-column-start / grid-column-end */
+    grid-area:  2 / 3 / 3 / 5;
+  }
+
+  /*Como abarcar X cantidad de espacios desde la posición especificada*/
+  .grid-explicit .item:nth-child(12){
+    grid-row: span 2;
+  }
+
+
+
+  /*AREAS EN UN GRID*/
+.grid-areas{
+    /*Tipo de Matriz 2cx3r*/
+    display: grid;
+    grid-template-columns: 1fr 200px;
+    grid-template-rows: 100px 1fr 60px;
+    grid-template-areas: 
+    "header header"
+    "content sidebar"
+    "footer footer"
+    ;
+}
+
+/*Si quiero un espacio vacío lo defino con un .*/
+
+
+/*Una vez designada la distribución por el grid-template-areas
+debo utilizar las clases que le di a cada elemento HTML que quiera posicionar de acuerdo a grid-areas
+ y colocarlos de la siguiente manera:*/
+
+.header{
+    grid-area: header;
+} 
+
+.content{
+    grid-area: content;
+} 
+
+.sidebar{
+    grid-area: sidebar;
+} 
+
+.footer{
+    grid-area: footer;
+} 
+
+
+/*EN GRID LOS COMPONENTES SE COMPORTAN EN BLOQUE. SI QUIERO QUE SE COMPORTE
+COMO UN ELEMENTO EN LINEA, DEBO PONER LA PROPIEDAD: display: inline-grid*/
+
+
+/*SUPER POSICIONAMIENTO*/
+.grid-layers {
+  display: grid;
+  /**/
+  grid-template-columns: repeat(4,1fr);
+  grid-template-rows: repeat(4, 1fr);
+}
+
+.grid-layers .item:nth-child(1){
+  background-color: yellow;
+  grid-column: 1/3;
+  grid-row: 1/3;
+}
+
+.grid-layers .item:nth-child(2){
+  background-color: blue;
+  grid-column: 3/5;
+  grid-row: 1/3;
+}
+
+.grid-layers .item:nth-child(3){
+  background-color: green;
+  grid-column: 1/3;
+  grid-row: 3/5;
+}
+
+.grid-layers .item:nth-child(4){
+  background-color: red;
+  grid-column: 3/5; 
+  grid-row: 3/5;
+}
+
+.grid-layers .item:nth-child(5){
+  background-color: purple;
+  grid-column: 2/4;
+  grid-row: 2/4;
+}
+
+/*Ordenamiento Grid CSS*/
+
+.grid-order{
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  grid-template-rows: repeat(2, 1fr);
+}
+
+/*El orden viene dado por la propiedad Order
+Default viene con valor 0 y acepta valores positivos y negativos*/
+
+.grid-order .item:nth-child(1){
+  order: 1;
+}
+
+
+.grid-order .item:nth-child(2){
+  order: 2;
+}
+
+.grid-order .item:nth-child(5){
+  order: -1;
+}
+
+
+/*PARA ORDENAR RESPECTO AL EJE X o HORIZONTALMENTE: justify-items:*/
+/*PARA ORDENAR RESPECTO AL EJE Y o VERTICALMENTE: align-items*/
+
+.grid-min-max{
+  display: grid;
+  /*Si quiero que se vaya generando de acuerdo al contenido que tenga*/   /*esto para que se vea como las publicaciones de un perfil de ig*/
+  grid-template-columns: repeat(4, minmax(100px,200px));
+  /*Si quiero que se adapte al tamaño del contenido más pequeño*/
+  grid-template-columns: repeat(4 minmax(min-content, 200px));
+  grid-template-columns: repeat(4 minmax(200px, min-content));
+    /*Si quiero que se adapte al tamaño del contenido más grande*/
+  grid-template-columns: repeat(4 minmax(max-content, 200px));
+  grid-template-columns: repeat(4 minmax(200px, max-content));
+  grid-template-columns: repeat(4 minmax(min-content, max-content));
+}
+
+/*PATRONES REPETITIVOS*/
+
+.grid-repeat{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(1, 10% 20% 30%); /*Puedo decidir la unidad que quiera, pero se repetirá el
+                                                  numero de veces que tengo a la izquierda de la coma y a la derecha el numero de columnas que tendrá*/
+}
+
+.grid-dynamics{
+  display: grid;
+  grid-template-columns: repeat(4, 100px);
+  /*auto-fill- rellena la grid con tracks  generados dinamicamente*/
+  grid-template-columns: repeat(auto-fill, 100px);
+  /*auto-fit ajusta la grid con los tracks existentes*/
+  grid-template-columns: repeat(auto-fit, 100px);
+  grid-template-columns: repeat(auto-fill, minmax(100px,1fr));
+  grid-template-columns: repeat(auto-fit, minmax(100px,1fr));   /*De esta forma es que verdaderamente veo que se pueden hacer los cuadritos tipo el perfil de ig*/
+}
+
+
+.grid-responsive{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.grid-nested{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+
+/*GRIDS ANIDADOS*/
+.grid{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2,1fr);
+}
+
+/*Para que la caracteristica de subgrid funcione es necesario hacer lo siguiente::after
+1) Definir explicitamente el tamaño que ocupará el elemento que aplicará subgrid dentro del contenedor padre
+grid, es decir definir sus propiedades grid column y grid row
+
+2) aplicar display grid al elemento que aplicará subgrid
+
+3) Aplicar el valor de subgrid a las columnas a las filas o ambas depende de como se requiera
+
+*/
+
+.subgrid{
+  grid: grid;
+  grid-column: span 3;
+  grid-row: 1/3;
+  
+  grid-template-columns: subgrid;
+  grid-template-rows: subgrid;
+}

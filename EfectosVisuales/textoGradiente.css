@@ -1,0 +1,5 @@
+.Gradiente{
+    background-image: linear-gradient( red, yellow);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
